@@ -19,7 +19,6 @@
     <TypeScriptConfiguration Remove="coverage\**" />
   </ItemGroup>
   <ItemGroup>
-    <Script Remove="jest.setup.ts" />
     <Script Remove="__mocks__\fileMock.ts" />
   </ItemGroup>
   <ItemGroup>

@@ -5,7 +5,7 @@
     "dev": "vite",
     "build": "vite build",
     "serve": "vite preview",
-    "test": "jest --config jest.config.ts"
+    "test": "jest"
   },
   "jest": {
     "preset": "ts-jest",
@@ -16,7 +16,7 @@
     "moduleNameMapper": {
       "^@/(.*)$": "<rootDir>/src/$1",
       "\\.(css|less|scss|sass)$": "identity-obj-proxy",
-      "\\.(jpg|jpeg|png|gif|webp|svg)$": "<rootDir>/__mocks__/fileMock.js"
+      "\\.(jpg|jpeg|png|gif|webp|svg)$": "<rootDir>/__mocks__/fileMock.ts"
     },
     "moduleFileExtensions": [
       "js",
@@ -26,7 +26,7 @@
       "json"
     ],
     "setupFilesAfterEnv": [
-      "<rootDir>/jest.setup.js"
+      "<rootDir>/jest.setup.ts"
     ],
     "testMatch": [
       "**/__tests__/**/*.test.(ts|tsx|js|jsx)"
@@ -56,7 +56,7 @@
     "@babel/preset-env": "^7.15.0",
     "@babel/preset-react": "^7.14.5",
     "@testing-library/dom": "^10.1.0",
-    "@testing-library/jest-dom": "6.4.5",
+    "@testing-library/jest-dom": "^6.4.5",
     "@testing-library/react": "^16.0.0",
     "@types/jest": "^27.0.1",
     "@types/react": "^18.3.3",
