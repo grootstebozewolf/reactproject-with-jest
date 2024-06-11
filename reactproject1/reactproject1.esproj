@@ -1,28 +1,30 @@
 ﻿<Project Sdk="Microsoft.VisualStudio.JavaScript.Sdk/1.0.1114476">
-	<PropertyGroup Label="Globals">
-		<ProjectGuid>919fd655-f067-4ba2-b932-d926e85dd6b4</ProjectGuid>
-	</PropertyGroup>
-	<PropertyGroup>
-		<StartupCommand>npm run dev</StartupCommand>
-		<JavaScriptTestRoot>__tests__\</JavaScriptTestRoot>
-		<JavaScriptTestFramework>Jest</JavaScriptTestFramework>
-		<EnableJavaScriptTestExplorer>true</EnableJavaScriptTestExplorer>
-		<ShouldRunBuildScript>false</ShouldRunBuildScript>
-		<BuildOutputFolder>$(MSBuildProjectDirectory)\dist</BuildOutputFolder>
-	</PropertyGroup>
-
-	<ItemGroup>
-		<Script Include="**" Exclude="*.esproj;**\node_modules\**;*\*.js.map;*.js.map;bin\**;obj\**" />
-	</ItemGroup>
-	<ItemGroup>
-		<Folder Include="__mocks__\" />
-		<Folder Include="__tests__\" />
-	</ItemGroup>
-	<Target Name="Restore">
-		<Exec Command="npm install --no-audit --no-fund --no-progress --include=dev" />
-	</Target>
-	<Target Name="VSTest">
-		<Exec Command="npm run test" />
-		<!-- Test explorer wouldn't run this command -->
-	</Target>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>919fd655-f067-4ba2-b932-d926e85dd6b4</ProjectGuid>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupCommand>npm run dev</StartupCommand>
+    <JavaScriptTestRoot>__tests__\</JavaScriptTestRoot>
+    <JavaScriptTestFramework>Jest</JavaScriptTestFramework>
+    <EnableJavaScriptTestExplorer>true</EnableJavaScriptTestExplorer>
+    <ShouldRunBuildScript>false</ShouldRunBuildScript>
+    <BuildOutputFolder>$(MSBuildProjectDirectory)\dist</BuildOutputFolder>
+  </PropertyGroup>
+  <ItemGroup>
+    <Script Include="**" Exclude="*.esproj;**\node_modules\**;*\*.js.map;*.js.map;bin\**;obj\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Script Remove="jest.setup.ts" />
+    <Script Remove="__mocks__\fileMock.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="__tests__\" />
+  </ItemGroup>
+  <Target Name="Restore">
+    <Exec Command="npm install --no-audit --no-fund --no-progress --include=dev" />
+  </Target>
+  <Target Name="VSTest">
+    <Exec Command="npm run test" />
+    <!-- Test explorer wouldn't run this command -->
+  </Target>
 </Project>

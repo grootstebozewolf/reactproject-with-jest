@@ -1,31 +1,19 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
-    "useDefineForClassFields": true,
-    "lib": [ "ESNext", "DOM", "DOM.Iterable" ],
-    "module": "ESNext",
-    "skipLibCheck": true,
-    "moduleResolution": "node", // Changed from "bundler" to "node" for better compatibility
-    "allowImportingTsExtensions": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx",
+    "target": "esnext",
+    "module": "esnext",
     "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
+    "jsx": "react-jsx",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "sourceMap": true, // Ensure source maps are generated
-    "inlineSources": true, // Include sources in the source maps
-    "inlineSourceMap": false, // Generate separate source map files instead of inline
-    "outDir": "./dist", // Specify an output directory if needed
-    "baseUrl": "./",
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node",
+    "baseUrl": ".",
     "paths": {
       "@/*": [ "src/*" ]
     }
   },
-  "include": [ "src" ],
-  "references": [ { "path": "./tsconfig.node.json" } ]
+  "include": [ "src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.jsx" ],
+  "exclude": [ "node_modules", "dist" ]
 }
