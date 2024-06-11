@@ -1,4 +1,7 @@
-module.exports = {
+import type { Config } from '@jest/types';
+
+// Define the Jest configuration
+const config: Config.InitialOptions = {
     preset: 'ts-jest',
     testEnvironment: 'jsdom',
     transform: {
@@ -26,8 +29,7 @@ module.exports = {
     coverageReporters: ['text', 'lcov'], // Specify coverage report formats
     coveragePathIgnorePatterns: ['/node_modules/'], // Ignore coverage for node_modules
     coverageDirectory: 'coverage', // Output directory for coverage reports
-    // Removed deprecated or invalid options
-    // mapCoverage: true, // Removed as it's no longer valid
-    // sourceMap: true, // Removed as it's no longer valid
-    // resolver: '<rootDir>/jest.resolver.js', // Removed as it's not found
 };
+
+// Export the Jest configuration
+export default config;

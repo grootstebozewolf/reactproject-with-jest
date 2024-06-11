@@ -1,43 +1,28 @@
-<Project Sdk="Microsoft.VisualStudio.JavaScript.Sdk/0.5.271090-alpha">
+﻿<Project Sdk="Microsoft.VisualStudio.JavaScript.Sdk/1.0.1114476">
+	<PropertyGroup Label="Globals">
+		<ProjectGuid>919fd655-f067-4ba2-b932-d926e85dd6b4</ProjectGuid>
+	</PropertyGroup>
 	<PropertyGroup>
-		<!-- Command to start the development server -->
 		<StartupCommand>npm run dev</StartupCommand>
-
-		<!-- Root folder for test files -->
 		<JavaScriptTestRoot>__tests__\</JavaScriptTestRoot>
-
-		<!-- Specify Jest as the test framework -->
 		<JavaScriptTestFramework>Jest</JavaScriptTestFramework>
-
-		<!-- Ensure Test Explorer can discover tests -->
 		<EnableJavaScriptTestExplorer>true</EnableJavaScriptTestExplorer>
-
-		<!-- Control whether the build script from package.json runs on Build -->
 		<ShouldRunBuildScript>false</ShouldRunBuildScript>
-
-		<!-- Output folder for production build objects -->
 		<BuildOutputFolder>$(MSBuildProjectDirectory)\dist</BuildOutputFolder>
-
-		<!-- Additional properties for integration and debugging -->
-		<NodeVersion>16</NodeVersion>
-		<!-- Specify Node.js version if needed -->
-		<JestPath>$(MSBuildProjectDirectory)\node_modules\jest\bin\jest.js</JestPath>
-		<NpmPath>$(MSBuildProjectDirectory)\node_modules\npm\bin\npm-cli.js</NpmPath>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<!-- Include folders for mocks and tests -->
+		<Script Include="**" Exclude="*.esproj;**\node_modules\**;*\*.js.map;*.js.map;bin\**;obj\**" />
+	</ItemGroup>
+	<ItemGroup>
 		<Folder Include="__mocks__\" />
 		<Folder Include="__tests__\" />
 	</ItemGroup>
-
-	<!-- Additional configurations to integrate Jest with Visual Studio -->
-	<ItemGroup>
-		<JavaScriptTest Include="**\*.test.js" />
-		<JavaScriptTest Include="**\*.test.ts" />
-		<JavaScriptTest Include="**\*.test.tsx" />
-		<JavaScriptTest Include="**\*.spec.js" />
-		<JavaScriptTest Include="**\*.spec.ts" />
-		<JavaScriptTest Include="**\*.spec.tsx" />
-	</ItemGroup>
+	<Target Name="Restore">
+		<Exec Command="npm install --no-audit --no-fund --no-progress --include=dev" />
+	</Target>
+	<Target Name="VSTest">
+		<Exec Command="npm run test" />
+		<!-- Test explorer wouldn't run this command -->
+	</Target>
 </Project>
