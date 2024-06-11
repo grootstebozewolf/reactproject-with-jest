@@ -9,6 +9,7 @@
     <EnableJavaScriptTestExplorer>true</EnableJavaScriptTestExplorer>
     <ShouldRunBuildScript>false</ShouldRunBuildScript>
     <BuildOutputFolder>$(MSBuildProjectDirectory)\dist</BuildOutputFolder>
+    <BuildCommand>npm run build</BuildCommand>
   </PropertyGroup>
   <ItemGroup>
     <Script Include="**" Exclude="*.esproj;**\node_modules\**;*\*.js.map;*.js.map;bin\**;obj\**" />
