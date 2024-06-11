@@ -1,19 +1,34 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "module": "esnext",
-    "strict": true,
-    "jsx": "react-jsx",
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "moduleResolution": "node",
-    "baseUrl": ".",
+    "target": "esnext", // Specify ECMAScript target version
+    "module": "esnext", // Specify module code generation
+    "strict": true, // Enable all strict type-checking options
+    "jsx": "react-jsx", // Specify JSX code generation
+    "esModuleInterop": true, // Enable compatibility with commonJS and ES Modules
+    "allowSyntheticDefaultImports": true, // Allow default imports from modules with no default export
+    "skipLibCheck": true, // Skip type checking of all declaration files
+    "forceConsistentCasingInFileNames": true, // Disallow inconsistently-cased references to the same file
+    "moduleResolution": "node", // Resolve modules using Node.js module resolution
+    "baseUrl": ".", // Base directory to resolve non-relative module names
     "paths": {
-      "@/*": [ "src/*" ]
-    }
+      "@/*": [ "src/*" ] // Define alias for source directory
+    },
+    "lib": [ "dom", "esnext" ], // Specify library files to be included in the compilation
+    "typeRoots": [ "./node_modules/@types" ] // Specify folders for type declarations
   },
-  "include": [ "src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.jsx" ],
-  "exclude": [ "node_modules", "dist" ]
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.jsx",
+    "jest.setup.ts", // Include Jest setup file
+    "__tests__/**/*.ts", // Include test files
+    "__tests__/**/*.tsx" // Include test files
+  ],
+  "exclude": [
+    "node_modules", // Exclude node_modules directory
+    "dist", // Exclude dist directory
+    "coverage", // Exclude coverage directory
+    "build" // Exclude build directory
+  ]
 }
