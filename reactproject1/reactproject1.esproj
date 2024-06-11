@@ -1,15 +1,43 @@
 <Project Sdk="Microsoft.VisualStudio.JavaScript.Sdk/0.5.271090-alpha">
-  <PropertyGroup>
-    <StartupCommand>npm run dev</StartupCommand>
-    <JavaScriptTestRoot>__tests__\</JavaScriptTestRoot>
-    <JavaScriptTestFramework>Jest</JavaScriptTestFramework>
-    <!-- Allows the build (or compile) script located on package.json to run on Build -->
-    <ShouldRunBuildScript>false</ShouldRunBuildScript>
-    <!-- Folder where production build objects will be placed -->
-    <BuildOutputFolder>$(MSBuildProjectDirectory)\dist</BuildOutputFolder>
-  </PropertyGroup>
-  <ItemGroup>
-    <Folder Include="__mocks__\" />
-    <Folder Include="__tests__\" />
-  </ItemGroup>
+	<PropertyGroup>
+		<!-- Command to start the development server -->
+		<StartupCommand>npm run dev</StartupCommand>
+
+		<!-- Root folder for test files -->
+		<JavaScriptTestRoot>__tests__\</JavaScriptTestRoot>
+
+		<!-- Specify Jest as the test framework -->
+		<JavaScriptTestFramework>Jest</JavaScriptTestFramework>
+
+		<!-- Ensure Test Explorer can discover tests -->
+		<EnableJavaScriptTestExplorer>true</EnableJavaScriptTestExplorer>
+
+		<!-- Control whether the build script from package.json runs on Build -->
+		<ShouldRunBuildScript>false</ShouldRunBuildScript>
+
+		<!-- Output folder for production build objects -->
+		<BuildOutputFolder>$(MSBuildProjectDirectory)\dist</BuildOutputFolder>
+
+		<!-- Additional properties for integration and debugging -->
+		<NodeVersion>16</NodeVersion>
+		<!-- Specify Node.js version if needed -->
+		<JestPath>$(MSBuildProjectDirectory)\node_modules\jest\bin\jest.js</JestPath>
+		<NpmPath>$(MSBuildProjectDirectory)\node_modules\npm\bin\npm-cli.js</NpmPath>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<!-- Include folders for mocks and tests -->
+		<Folder Include="__mocks__\" />
+		<Folder Include="__tests__\" />
+	</ItemGroup>
+
+	<!-- Additional configurations to integrate Jest with Visual Studio -->
+	<ItemGroup>
+		<JavaScriptTest Include="**\*.test.js" />
+		<JavaScriptTest Include="**\*.test.ts" />
+		<JavaScriptTest Include="**\*.test.tsx" />
+		<JavaScriptTest Include="**\*.spec.js" />
+		<JavaScriptTest Include="**\*.spec.ts" />
+		<JavaScriptTest Include="**\*.spec.tsx" />
+	</ItemGroup>
 </Project>

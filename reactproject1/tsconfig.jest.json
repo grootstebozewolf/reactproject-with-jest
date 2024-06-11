@@ -1,26 +1,20 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    "module": "commonjs",
-    "jsx": "react-jsx", // Use react-jsx for compatibility with modern React
-    "lib": [ "dom", "dom.iterable", "esnext" ],
-    "allowJs": true,
-    "skipLibCheck": true,
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "jsx": "react-jsx",
+    "strict": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "types": [ "jest", "node", "react" ], // Ensure react types are included
+    "sourceMap": true, // Generate source maps
+    "inlineSources": true, // Include sources in the source maps
+    "outDir": "./dist", // Specify an output directory if needed
+    "baseUrl": "./",
     "paths": {
       "@/*": [ "src/*" ]
     }
   },
-  "include": [ "src/**/*", "__tests__/**/*" ],
-  "exclude": [ "node_modules" ],
-  "mapCoverage": false // Disable source map coverage
+  "include": [ "src/**/*.ts", "src/**/*.tsx" ],
+  "exclude": [ "node_modules" ]
 }
